@@ -17,8 +17,7 @@ function Project(props) {
         <div className={styles.mainImage}>
           <img
             src={imageUrlFor(buildImageObj(mainImage))
-              .width(1200)
-              .height(Math.floor((9 / 16) * 1200))
+              .width(500)
               .fit("crop")
               .url()}
             alt={mainImage.alt}
@@ -31,42 +30,7 @@ function Project(props) {
             <h1 className={styles.title}>{title}</h1>
             {_rawBody && <BlockContent blocks={_rawBody || []} />}
           </div>
-          <aside className={styles.metaContent}>
-            {publishedAt && (
-              <div className={styles.publishedAt}>
-                {differenceInDays(new Date(publishedAt), new Date()) > 3
-                  ? formatDistance(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), "MMMM do yyyy")}
-              </div>
-            )}
-            {members && members.length > 0 && <RoleList items={members} title="Project members" />}
-            {categories && categories.length > 0 && (
-              <div className={styles.categories}>
-                <h3 className={styles.categoriesHeadline}>Categories</h3>
-                <ul>
-                  {categories.map(category => (
-                    <li key={category._id}>{category.title}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {relatedProjects && relatedProjects.length > 0 && (
-              <div className={styles.relatedProjects}>
-                <h3 className={styles.relatedProjectsHeadline}>Related projects</h3>
-                <ul>
-                  {relatedProjects.map(project => (
-                    <li key={`related_${project._id}`}>
-                      {project.slug ? (
-                        <Link to={`/project/${project.slug.current}`}>{project.title}</Link>
-                      ) : (
-                        <span>{project.title}</span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </aside>
+          <aside className={styles.metaContent}></aside>
         </div>
       </Container>
     </article>

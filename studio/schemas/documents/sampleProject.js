@@ -1,90 +1,98 @@
-import {format,parseISO} from 'date-fns'
+import { format, parseISO } from "date-fns";
+import { orderRankField, orderRankOrdering } from "@sanity/orderable-document-list";
 
 export default {
-  name: 'sampleProject',
-  title: 'Sample project',
-  type: 'document',
+  name: "sampleProject",
+  title: "Sample project",
+  type: "document",
   fields: [
+    orderRankField({ type: "sampleProject" }),
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string'
+      name: "title",
+      title: "Title",
+      type: "string"
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      description: 'Some frontend will require a slug to be set to be able to show the project',
+      name: "mainImage",
+      title: "Main image",
+      type: "figure"
+    },
+    {
+      name: "categories",
+      title: "Categories",
+      type: "array",
+      of: [{ type: "reference", to: { type: "category" } }]
+    },
+    {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      description: "Some frontend will require a slug to be set to be able to show the project",
       options: {
-        source: 'title',
+        source: "title",
         maxLength: 96
       }
     },
     {
-      name: 'publishedAt',
-      title: 'Published at',
-      description: 'You can use this field to schedule projects where you show them',
-      type: 'datetime'
+      name: "publishedAt",
+      title: "Published at",
+      description: "You can use this field to schedule projects where you show them",
+      type: "datetime"
     },
     {
-      name: 'excerpt',
-      title: 'Excerpt',
-      type: 'simplePortableText'
+      name: "excerpt",
+      title: "Excerpt",
+      type: "simplePortableText"
     },
     {
-      name: 'members',
-      title: 'Members',
-      type: 'array',
-      of: [{type: 'projectMember'}]
+      name: "members",
+      title: "Members",
+      type: "array",
+      of: [{ type: "projectMember" }]
     },
     {
-      name: 'startedAt',
-      title: 'Started at',
-      type: 'datetime'
+      name: "startedAt",
+      title: "Started at",
+      type: "datetime"
     },
     {
-      name: 'endedAt',
-      title: 'Ended at',
-      type: 'datetime'
+      name: "endedAt",
+      title: "Ended at",
+      type: "datetime"
     },
     {
-      name: 'mainImage',
-      title: 'Main image',
-      type: 'figure'
+      name: "body",
+      title: "Body",
+      type: "projectPortableText"
     },
     {
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}]
+      name: "relatedProjects",
+      title: "Related projects",
+      type: "array",
+      of: [{ type: "reference", to: { type: "sampleProject" } }]
     },
     {
-      name: 'body',
-      title: 'Body',
-      type: 'projectPortableText'
-    },
-    {
-      name: 'relatedProjects',
-      title: 'Related projects',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'sampleProject'}}]
+      name: "order",
+      type: "number",
+      title: "Order",
+      hidden: true
     }
   ],
   preview: {
     select: {
-      title: 'title',
-      publishedAt: 'publishedAt',
-      slug: 'slug',
-      media: 'mainImage'
+      title: "title",
+      publishedAt: "publishedAt",
+      slug: "slug",
+      media: "mainImage"
     },
-    prepare({title = 'No title', publishedAt, slug = {}, media}) {
-      const dateSegment = format(parseISO(publishedAt), 'yyyy/MM')
-      const path = `/${dateSegment}/${slug.current}/`
+    prepare({ title = "No title", publishedAt, slug = {}, media }) {
+      const dateSegment = format(parseISO(publishedAt), "yyyy/MM");
+      const path = `/${dateSegment}/${slug.current}/`;
       return {
         title,
         media,
-        subtitle: publishedAt ? path : 'Missing publishing date'
-      }
+        subtitle: publishedAt ? path : "Missing publishing date"
+      };
     }
   }
-}
+};

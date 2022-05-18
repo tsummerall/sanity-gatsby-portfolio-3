@@ -17,7 +17,9 @@
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
     "dashboard-widget-netlify",
-    "@sanity/studio-hints"
+    "@sanity/studio-hints",
+    "@sanity/orderable-document-list",
+    "@sanity/color-input"
   ],
   "parts": [
     {

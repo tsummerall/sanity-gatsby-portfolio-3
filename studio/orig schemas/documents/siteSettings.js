@@ -15,11 +15,6 @@ export default {
       title: 'Title'
     },
     {
-      name: 'news',
-      type: 'text',
-      title: 'News'
-    },
-    {
       name: 'description',
       type: 'text',
       title: 'Description',
