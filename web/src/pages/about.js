@@ -44,8 +44,8 @@ export default function contactForm(props) {
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
-        <h2>News and Information on this page</h2>
-        <p>pic of Jennie?</p>
+        <h2>News and Information</h2>
+        <p>Coming soon...</p>
       </Container>
     </Layout>
   );

@@ -177,7 +177,7 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <HomeStyled>
-          <h1>Welcome to {site.title}</h1>
+          <h1>{site.title}</h1>
           <div className="navImagesGrid">
             {catArray &&
               catArray.map(cat => (
