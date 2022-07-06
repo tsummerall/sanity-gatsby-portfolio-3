@@ -43,6 +43,7 @@ export const query = graphql`
           _id
         }
         alt
+        caption
       }
       title
       slug {

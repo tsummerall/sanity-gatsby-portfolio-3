@@ -11,8 +11,12 @@ import * as styles from "./project.module.css";
 
 function Project(props) {
   const { _rawBody, title, categories, mainImage, members, publishedAt, relatedProjects } = props;
+  console.log(_rawBody);
   return (
     <article className={styles.root}>
+      <h1>{title}</h1>
+      <h2>{mainImage.caption}</h2>
+      <h3>{_rawBody ? _rawBody[0].children[0].text : ""}</h3>
       {props.mainImage && mainImage.asset && (
         <div className={styles.mainImage}>
           <img
@@ -24,15 +28,6 @@ function Project(props) {
           />
         </div>
       )}
-      <Container>
-        <div className={styles.grid}>
-          <div className={styles.mainContent}>
-            <h1 className={styles.title}>{title}</h1>
-            {_rawBody && <BlockContent blocks={_rawBody || []} />}
-          </div>
-          <aside className={styles.metaContent}></aside>
-        </div>
-      </Container>
     </article>
   );
 }
