@@ -5,7 +5,7 @@ import "../styles/layout.css";
 import * as styles from "./layout.module.css";
 
 const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => {
-  console.log("Site title in layout:", siteTitle);
+  //console.log("Site title in layout:", siteTitle);
   return (
     <>
       <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />

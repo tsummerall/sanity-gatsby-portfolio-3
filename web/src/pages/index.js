@@ -168,10 +168,10 @@ const IndexPage = props => {
     );
   }
   const catArray = data.categories.edges;
-  console.log(catArray);
-  console.log(catArray[0].node.id);
-  console.log(catArray[0].node.buttonImage);
-  console.log(catArray[0].node.slug.current);
+  // console.log(catArray);
+  // console.log(catArray[0].node.id);
+  // console.log(catArray[0].node.buttonImage);
+  // console.log(catArray[0].node.slug.current);
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />

@@ -11,7 +11,7 @@ import * as styles from "./project.module.css";
 
 function Project(props) {
   const { _rawBody, title, categories, mainImage, members, publishedAt, relatedProjects } = props;
-  console.log(_rawBody);
+  //console.log(_rawBody);
   return (
     <article className={styles.root}>
       <h1>{title}</h1>
