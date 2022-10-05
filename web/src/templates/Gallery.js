@@ -91,7 +91,7 @@ const GalleryPage = props => {
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
-        <h1>{pageContext.categoryTitle} by Jennie Summerall</h1>
+        <h1>{pageContext.categoryTitle}</h1>
         {projectNodes && (
           <ProjectPreviewGrid
             title="Latest projects"
