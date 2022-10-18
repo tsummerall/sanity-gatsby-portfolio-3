@@ -13,15 +13,12 @@ function ProjectPreview(props) {
       <div className={styles.leadMediaThumb}>
         {props.mainImage && props.mainImage.asset && (
           <img
-            src={imageUrlFor(buildImageObj(props.mainImage))
-              .width(500)
-              .height(700)
-              .url()}
+            src={imageUrlFor(buildImageObj(props.mainImage)).width(500).height(700).url()}
             alt={props.mainImage.alt}
           />
         )}
       </div>
-      <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
+      <h4 className={cn(responsiveTitle3, styles.title)}>{props.title}</h4>
       {/* {props._rawExcerpt && (
         <div className={styles.excerpt}>
           <BlockContent blocks={props._rawExcerpt} />

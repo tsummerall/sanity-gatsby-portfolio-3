@@ -36,7 +36,7 @@ export const query = graphql`
   }
 `;
 
-const ArchivePage = props => {
+const ArchivePage = (props) => {
   const { data, errors } = props;
   if (errors) {
     return (

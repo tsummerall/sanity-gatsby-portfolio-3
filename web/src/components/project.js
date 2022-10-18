@@ -8,26 +8,37 @@ import Container from "./container";
 import RoleList from "./role-list";
 
 import * as styles from "./project.module.css";
+import styled from "styled-components";
+
+const ArtAndInfoStyled = styled.div`
+  h1 {
+    display: block;
+    margin-left: auto !important;
+    margin-right: auto;
+    width: 50%;
+  }
+  h2 {
+  }
+`;
 
 function Project(props) {
   const { _rawBody, title, categories, mainImage, members, publishedAt, relatedProjects } = props;
   //console.log(_rawBody);
   return (
     <article className={styles.root}>
-      <h1>{title}</h1>
-      <h2>{mainImage.caption}</h2>
-      <h3>{_rawBody ? _rawBody[0].children[0].text : ""}</h3>
-      {props.mainImage && mainImage.asset && (
-        <div className={styles.mainImage}>
-          <img
-            src={imageUrlFor(buildImageObj(mainImage))
-              .width(500)
-              .fit("crop")
-              .url()}
-            alt={mainImage.alt}
-          />
-        </div>
-      )}
+      <ArtAndInfoStyled>
+        <h1>{title}</h1>
+        <h2>{mainImage.caption}</h2>
+        <h3>{_rawBody ? _rawBody[0].children[0].text : ""}</h3>
+        {props.mainImage && mainImage.asset && (
+          <div className={styles.mainImage}>
+            <img
+              src={imageUrlFor(buildImageObj(mainImage)).width(500).fit("crop").url()}
+              alt={mainImage.alt}
+            />
+          </div>
+        )}
+      </ArtAndInfoStyled>
     </article>
   );
 }

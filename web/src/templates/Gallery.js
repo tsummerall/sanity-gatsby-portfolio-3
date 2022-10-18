@@ -3,13 +3,14 @@ import { graphql } from "gatsby";
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture
+  filterOutDocsPublishedInTheFuture,
 } from "../lib/helpers";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import ProjectPreviewGrid from "../components/project-preview-grid";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
+import styled from "styled-components";
 
 export const query = graphql`
   query GalleryPageQuery($categoryTitle: String!) {
@@ -63,7 +64,7 @@ export const query = graphql`
   }
 `;
 
-const GalleryPage = props => {
+const GalleryPage = (props) => {
   const { data, errors, pageContext } = props;
 
   if (errors) {
@@ -91,10 +92,9 @@ const GalleryPage = props => {
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
-        <h1>{pageContext.categoryTitle}</h1>
         {projectNodes && (
           <ProjectPreviewGrid
-            title="Latest projects"
+            title={pageContext.categoryTitle}
             nodes={projectNodes}
             browseMoreHref="/archive/"
           />

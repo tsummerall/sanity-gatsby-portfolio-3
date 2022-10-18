@@ -1,0 +1,14 @@
+Index page
+  pages/index.js
+
+
+Gallery pages
+  src/templates/Gallery.js
+    components/project-preview-grid
+      components/project-preview
+    components/container
+
+Individual image pages
+  components/project.js
+
+About page

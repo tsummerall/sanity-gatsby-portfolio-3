@@ -5,7 +5,7 @@ import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture,
-  buildImageObj
+  buildImageObj,
 } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 import Container from "../components/container";
@@ -100,6 +100,12 @@ export const query = graphql`
 `;
 
 const HomeStyled = styled.div`
+  h1 {
+    display: block;
+    margin-left: 0px;
+    margin-right: auto;
+    width: 50%;
+  }
   .navImagesGrid {
     display: grid;
     max-width: 1200px;
@@ -122,7 +128,7 @@ const HomeNavLinkStyled = styled.div`
     }
   }
   .bullshit {
-    background-color: ${props => props.bgcolor};
+    background-color: ${(props) => props.bgcolor};
     float: left;
   }
   .buttonImage {
@@ -144,7 +150,7 @@ const HomeNavLinkStyled = styled.div`
   }
 `;
 
-const IndexPage = props => {
+const IndexPage = (props) => {
   const { data, errors } = props;
 
   if (errors) {
@@ -180,7 +186,7 @@ const IndexPage = props => {
           <h1>{site.title}</h1>
           <div className="navImagesGrid">
             {catArray &&
-              catArray.map(cat => (
+              catArray.map((cat) => (
                 <HomeNavLinkStyled bgcolor={cat.node.buttonBackgroundColor.hex}>
                   <Link key={cat.node.id} to={cat.node.slug.current}>
                     <div className="hoverButton">
