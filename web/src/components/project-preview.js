@@ -18,7 +18,8 @@ function ProjectPreview(props) {
           />
         )}
       </div>
-      <h4 className={cn(responsiveTitle3, styles.title)}>{props.title}</h4>
+      {/* The below line puts titles under the gallery preview image */}
+      {/*<h4 className={cn(responsiveTitle3, styles.title)}>{props.title}</h4>*/}
       {/* {props._rawExcerpt && (
         <div className={styles.excerpt}>
           <BlockContent blocks={props._rawExcerpt} />
