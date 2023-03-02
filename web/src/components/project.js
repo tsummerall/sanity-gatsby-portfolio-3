@@ -33,8 +33,9 @@ function Project(props) {
         {props.mainImage && mainImage.asset && (
           <div className={styles.mainImage}>
             <img
-              src={imageUrlFor(buildImageObj(mainImage)).width(500).fit("crop").url()}
+              src={imageUrlFor(buildImageObj(mainImage)).width(1500).fit("crop").url()}
               alt={mainImage.alt}
+              style={{ width: "100%" }}
             />
           </div>
         )}
