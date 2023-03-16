@@ -20,7 +20,7 @@ export const query = graphql`
       keywords
     }
     projects: allSanitySampleProject(
-      limit: 30
+      limit: 100
       sort: { fields: orderRank, order: ASC }
       filter: {
         categories: { elemMatch: { title: { eq: $categoryTitle } } }
