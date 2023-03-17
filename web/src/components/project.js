@@ -11,13 +11,10 @@ import * as styles from "./project.module.css";
 import styled from "styled-components";
 
 const ArtAndInfoStyled = styled.div`
-  h1 {
-    display: block;
-    margin-left: auto !important;
-    margin-right: auto;
-    width: 50%;
-  }
+  margin: auto;
+  width: 700px; /* if you change this, change it below */
   h2 {
+    font-size: 1em;
   }
 `;
 
@@ -35,7 +32,7 @@ function Project(props) {
             <img
               src={imageUrlFor(buildImageObj(mainImage)).width(1500).fit("crop").url()}
               alt={mainImage.alt}
-              style={{ width: "100%" }}
+              style={{ width: "700px" }}
             />
           </div>
         )}
