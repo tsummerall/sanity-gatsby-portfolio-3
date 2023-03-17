@@ -120,6 +120,7 @@ const HomeNavLinkStyled = styled.div`
     color: white;
     font: arial;
     font-size: 32px;
+    font-weight: bold;
     top: 300px;
     left: 20px;
     position: absolute;
