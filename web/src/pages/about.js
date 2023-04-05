@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture
+  filterOutDocsPublishedInTheFuture,
 } from "../lib/helpers";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
@@ -11,6 +11,8 @@ import styled from "styled-components";
 import { navigate } from "gatsby-link";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
+import ARTIST from "./artist_photo.jpg";
+import DEERISLEGALLERY from "./deer_isle_gallery.jpg";
 
 export const query = graphql`
   query AboutPageQuery {
@@ -20,6 +22,31 @@ export const query = graphql`
       keywords
       news
     }
+  }
+`;
+
+const AboutImagesStyled = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  figure {
+    flex-basis: calc(50% - 10px);
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
+  figcaption {
+    padding-bottom: 20px;
+  }
+  img {
+    width: 360px;
+  }
+`;
+
+const Address = styled.div`
+  p {
+    padding-top: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
 `;
 
@@ -45,8 +72,8 @@ export default function contactForm(props) {
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
-        <div id="address">
-          <strong>Summerall Gallery</strong>
+        <strong>Summerall Gallery</strong>
+        <Address>
           <p>
             <a href="https://www.google.com/maps/place/13+Main+St,+Deer+Isle,+ME+04627/@44.2243846,-68.6811116,17z/data=!3m1!4b1!4m5!3m4!1s0x4cae8305221f1d4d:0xd7b3329326ad0f04!8m2!3d44.2243846!4d-68.6789229">
               13 Main Street, Deer Isle, Maine
@@ -54,7 +81,17 @@ export default function contactForm(props) {
           </p>
           <p>Open 12-5 most days or by appointment.</p>
           <p>617-484-5262</p>
-        </div>
+        </Address>
+        <AboutImagesStyled>
+          <figure>
+            <img src={DEERISLEGALLERY} alt="Summerall Gallery on Deer Isle"></img>
+            <figcaption>Summerall Gallery on Deer Isle</figcaption>
+          </figure>
+          <figure>
+            <img src={ARTIST} alt="Jennie Summerall (Right) with artist Karen Blair"></img>
+            <figcaption>Jennie Summerall (right) with artist Karen Blair</figcaption>
+          </figure>
+        </AboutImagesStyled>
         <div id="statement">
           <p>
             I’ve been creating collage images of animals for years now, with the goal of trying to
