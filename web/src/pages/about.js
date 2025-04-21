@@ -87,10 +87,7 @@ export default function contactForm(props) {
             <img src={DEERISLEGALLERY} alt="Summerall Gallery on Deer Isle"></img>
             <figcaption>Summerall Gallery on Deer Isle</figcaption>
           </figure>
-          <figure>
-            <img src={ARTIST} alt="Jennie Summerall (Right) with artist Karen Blair"></img>
-            <figcaption>Jennie Summerall (right) with artist Karen Blair</figcaption>
-          </figure>
+          <figure></figure>
         </AboutImagesStyled>
         <div id="statement">
           <p>
